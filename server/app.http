@@ -1,0 +1,25 @@
+### Get Notes
+GET http://localhost:3000/notes
+
+### Get Note ID
+GET http://localhost:3000/notes/1693845439847
+
+### POST Note
+POST http://localhost:3000/notes
+Content-Type: application/json
+
+{
+  "title": "Democratización del conocimiento",
+  "content": "La tecnología ha permitido que más personas en todo el mundo accedan a información y recursos educativos, ampliando las oportunidades de aprendizaje y reduciendo las brechas educativas."
+}
+
+### PUT Note
+PATCH http://localhost:3000/notes/1
+Content-Type: application/json
+
+{
+  "title": "Edited"
+}
+
+### DELETE Note
+DELETE http://localhost:3000/notes/1
