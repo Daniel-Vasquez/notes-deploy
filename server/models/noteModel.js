@@ -1,19 +1,16 @@
 import { randomUUID } from "node:crypto"
-import { loadData } from "../utils.js";
+// import { loadData } from "../utils.js";
 const NOTES = [
   {
     "id": "1693845439847",
-    "title": "Evolución constante",
     "content": "La tecnología avanza rápidamente y lo que es innovador hoy puede volverse obsoleto en poco tiempo."
   },
   {
     "id": "1693843949847",
-    "title": "Impacto en la sociedad",
     "content": "La tecnología ha transformado la forma en que vivimos, trabajamos y nos relacionamos, generando tanto oportunidades como desafíos."
   },
   {
     "id": "1693843954012",
-    "title": "Conectividad global",
     "content": "La tecnología, especialmente Internet, ha conectado a personas de todo el mundo, impulsando la globalización y cambiando la forma en que interactuamos y hacemos negocios."
   }
 ]

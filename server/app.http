@@ -9,20 +9,19 @@ POST http://localhost:3000/notes
 Content-Type: application/json
 
 {
-  "title": "Democratización del conocimiento",
   "content": "La tecnología ha permitido que más personas en todo el mundo accedan a información y recursos educativos, ampliando las oportunidades de aprendizaje y reduciendo las brechas educativas."
 }
 
 ### PUT Note
-PATCH http://localhost:3000/notes/1
+PATCH http://localhost:3000/notes/1693845439847
 Content-Type: application/json
 
 {
-  "title": "Edited"
+  "content": "Edited"
 }
 
 ### DELETE Note
-DELETE http://localhost:3000/notes/1
+DELETE http://localhost:3000/notes/1693845439847
 
 ### GET Test Production
 GET https://notes-deploy-server.vercel.app/notes
@@ -32,6 +31,5 @@ POST https://notes-deploy-server.vercel.app/notes
 Content-Type: application/json
 
 {
-  "title": "Test Deploy",
   "content": "La tecnología ha permitido que más personas en todo el mundo accedan a información y recursos educativos, ampliando las oportunidades de aprendizaje y reduciendo las brechas educativas."
 }
