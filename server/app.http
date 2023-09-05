@@ -23,3 +23,15 @@ Content-Type: application/json
 
 ### DELETE Note
 DELETE http://localhost:3000/notes/1
+
+### GET Test Production
+GET https://notes-deploy-server-git-master-daniel-vasquez.vercel.app/notes
+
+### POST Test Production
+POST https://notes-deploy-server-git-master-daniel-vasquez.vercel.app/notes
+Content-Type: application/json
+
+{
+  "title": "Test Deploy",
+  "content": "La tecnología ha permitido que más personas en todo el mundo accedan a información y recursos educativos, ampliando las oportunidades de aprendizaje y reduciendo las brechas educativas."
+}

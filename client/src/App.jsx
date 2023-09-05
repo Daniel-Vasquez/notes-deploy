@@ -5,7 +5,7 @@ function App() {
   const [notes, setNotes] = useState([])
 
   const allNotes = async () => {
-    await fetch('http://localhost:3000/notes')
+    await fetch('https://notes-deploy-server-git-master-daniel-vasquez.vercel.app/notes')
       .then((res) => res.json())
       .then((res) => setNotes(res))
       .catch(error => console.error('Error al cargar las películas:', error));
@@ -17,7 +17,7 @@ function App() {
 
   const deleteMovie = async (id, setMovies) => {
     try {
-      await fetch(`http://localhost:3000/notes/${id}`, {
+      await fetch(`https://notes-deploy-server-git-master-daniel-vasquez.vercel.app/notes/${id}`, {
         method: 'DELETE'
       });
 

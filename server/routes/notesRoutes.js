@@ -8,5 +8,3 @@ notesRouter.get("/:id", NoteController.getId);
 notesRouter.post("/", NoteController.create);
 notesRouter.patch("/:id", NoteController.update);
 notesRouter.delete("/:id", NoteController.delete);
-
-
