@@ -1,5 +1,21 @@
+.note,
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.note-title {
+  margin: 10px 0;
+}
+
+.note-content {
+  margin: 0;
+  margin-top: 10px;
+}
+
 .comment-card-buttons {
-  margin-top: calc(0.5rem * 2.5);
+
 }
 
 .comment-card-buttons__comment {
