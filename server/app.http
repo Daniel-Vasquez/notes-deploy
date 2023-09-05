@@ -25,10 +25,10 @@ Content-Type: application/json
 DELETE http://localhost:3000/notes/1
 
 ### GET Test Production
-GET https://notes-deploy-server-git-master-daniel-vasquez.vercel.app/notes
+GET https://notes-deploy-server.vercel.app/notes
 
 ### POST Test Production
-POST https://notes-deploy-server-git-master-daniel-vasquez.vercel.app/notes
+POST https://notes-deploy-server.vercel.app/notes
 Content-Type: application/json
 
 {
