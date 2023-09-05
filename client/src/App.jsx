@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Comment } from './components/Comment'
-import { createNote, updateNote, deleteNote  } from './methods'
+import { Form } from './components/Form'
+import { Loading } from './components/Loading'
+import { createNote, updateNote, deleteNote } from './methods'
 import './App.css'
 
-function App() {
+export function App() {
   const [notes, setNotes] = useState([])
   const [inputContent, setInputContent] = useState("")
   const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +21,7 @@ function App() {
     allNotes()
   }, []);
 
-  const handleSubmitCreate = async (e) => { 
+  const handleSubmitCreate = async (e) => {
     e.preventDefault();
 
     setIsLoading(true);
@@ -38,7 +40,7 @@ function App() {
     setInputContent("");
     allNotes()
   }
-  
+
   const handleClickDelete = async (id, setNotes) => {
     setIsLoading(true);
     await deleteNote(id, setNotes)
@@ -52,8 +54,8 @@ function App() {
     setInputContent(e.target.value);
   }
 
-  if (isLoading) { 
-    return <h1>Loading...</h1>
+  if (isLoading) {
+    return <Loading />
   }
 
   return (
@@ -64,31 +66,15 @@ function App() {
           deja tu comentario para seguir
           mejorando como programador.
         </h2>
-        <form className="comment-card-inputs" onSubmit={handleSubmitCreate}>
-          <label className="comment-card-input">
-            <input
-              className="input__field"
-              type="text"
-              placeholder=" "
-              value={inputContent}
-              onChange={handleChangeContent}
-            />
-            <span className="comment-card-input__label">Comentario</span>
-          </label>
-          <div className="comment-card-buttons">
-            <button
-              type='submit'
-              disabled={!inputContent}
-              className="comment-card-buttons__comment"
-            >
-              Publicar
-            </button>
-          </div>
-        </form>
+        <Form
+          value={inputContent}
+          onChange={handleChangeContent}
+          onSubmit={handleSubmitCreate}
+        />
       </div>
       <section className='comment'>
         {!notes.length && <h1 style={{ textAlign: 'center' }}>No hay comentarios</h1>}
-        
+
         {notes.map((note, index) => (
           <div
             key={index}
@@ -106,5 +92,3 @@ function App() {
     </section>
   )
 }
-
-export default App

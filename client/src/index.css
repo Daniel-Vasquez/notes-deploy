@@ -1,6 +1,7 @@
 :root {
-  --color-black: #000;
-  --color-white: #fff;
+  --color-black: black;
+  --color-gray: #656565ab;
+  --color-white: white;
 }
 
 * {
@@ -11,5 +12,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  /* filter: invert(1); */
+}
+
+#root {
+  background: white;
+  width: 100vw;
+  height: 100vh;
 }

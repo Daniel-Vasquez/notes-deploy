@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { newDateComment } from '../../utils';
+import { Form } from '../Form';
 import './index.css';
 
 export function Comment({ notes, note, deleteComment, updateComment }) {
@@ -37,50 +38,33 @@ export function Comment({ notes, note, deleteComment, updateComment }) {
 
   return (
     <div className="note">
-      {isEditing ? (
+      {isEditing && (
         <>
           <h3 className="note-title">Edita tu comentario:</h3>
-          <form className="note-form" onSubmit={handleSaveClick}>
-            <input
-              className="input__field"
-              value={inputTextEdit}
-              placeholder='Escribe tu comentario'
-              onChange={handleChange}
-            />
-            <div className="comment-card-buttons">
-              <button
-                type='submit'
-                className="comment-card-buttons__comment"
-                disabled={inputTextEdit === content || inputTextEdit === ""}
-              >
-                Guardar
-              </button>
-              <button
-                type='button'
-                className="comment-card-buttons__comment"
-                onClick={handleCancelClick}
-                style={{
-                  backgroundColor: 'red'
-                }}
-              >
-                Cancelar
-              </button>
-            </div>
-          </form>
+          <Form
+            id={id}
+            value={inputTextEdit}
+            content={content}
+            onCancel={handleCancelClick}
+            onChange={handleChange}
+            onSubmit={handleSaveClick}
+          />
         </>
-      ) : (
+      )}
+
+      {!isEditing && (
         <>
           <p className="note-content">
-            {content}, <strong>{newDateComment()}.</strong>
+            {content}, <strong>{newDateComment()}</strong>.
           </p>
-          <div className="comment-card-buttons">
-            {/* <button
+          {/* <div className="comment-card-buttons">
+            <button
               className="comment-card-buttons__comment"
               onClick={() => handleUpdateClick(id)}
             >
               Editar
-            </button> */}
-            {/* <button
+            </button>
+            <button
               className="comment-card-buttons__comment"
               onClick={deleteComment}
               style={{
@@ -88,11 +72,10 @@ export function Comment({ notes, note, deleteComment, updateComment }) {
               }}
             >
               Eliminar
-            </button> */}
-          </div>
+            </button>
+          </div> */}
         </>
-      )
-      }
+      )}
     </div >
   );
 }
