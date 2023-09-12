@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { newDateComment } from '../../utils';
 import { Form } from '../Form';
 import './index.css';
 
 export function Comment({ notes, note, deleteComment, updateComment }) {
-  const { id, content } = note;
+  const { id, date, content } = note;
   const [isEditing, setIsEditing] = useState(false);
   const [inputTextEdit, setInputTextEdit] = useState(content ? content : '')
   const [selectNote, setSelectNote] = useState(null);
@@ -55,7 +54,7 @@ export function Comment({ notes, note, deleteComment, updateComment }) {
       {!isEditing && (
         <>
           <p className="note-content">
-            {content}, <strong>{newDateComment()}</strong>.
+            {content}, <strong>{date}</strong>.
           </p>
           {/* <div className="comment-card-buttons">
             <button

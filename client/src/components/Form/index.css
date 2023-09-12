@@ -34,7 +34,7 @@
 .input__field:focus+.comment-card-input__label,
 .input__field:not(:placeholder-shown)+.comment-card-input__label {
   transform: translate(0.25rem, -65%) scale(0.8);
-  color: var(--color-black);
+  color: #206bd5;
 }
 
 .warning-message {
@@ -42,7 +42,7 @@
   margin-bottom: 7px;
   font-weight: 600;
   font-size: .88rem;
-  opacity: .6;
+  opacity: .4;
 }
 
 .comment-card-buttons {

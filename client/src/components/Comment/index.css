@@ -13,9 +13,8 @@
   margin: 10px 0;
 }
 
-
 .note-content strong {
-  color: #656565ab;
+  color: rgb(101 101 101 / 60%);;
 }
 
 .comment-card-buttons {
