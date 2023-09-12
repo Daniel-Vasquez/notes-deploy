@@ -3,7 +3,10 @@ import { Comment } from './components/Comment'
 import { Form } from './components/Form'
 import { Loading } from './components/Loading'
 import { createNote, updateNote, deleteNote } from './methods'
+import { getEnvValue } from './utils'
 import './App.css'
+
+const ENDPOINT = getEnvValue('ENDPOINT');
 
 export function App() {
   const [notes, setNotes] = useState([])
@@ -11,7 +14,7 @@ export function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   const allNotes = async () => {
-    await fetch('https://notes-deploy-server.vercel.app/notes')
+    await fetch(`${ENDPOINT}/notes`)
       .then((res) => res.json())
       .then((res) => setNotes(res))
       .catch(error => console.error('Error loading notes:', error));
@@ -73,18 +76,21 @@ export function App() {
         />
       </div>
       <section className='comment'>
-        {!notes.length && <h1 style={{ textAlign: 'center' }}>No hay comentarios</h1>}
+        {!notes.length &&
+          <h1 className="comment-title">
+            No hay comentarios
+          </h1>
+        }
 
         {notes.map((note, index) => (
-          <div
-            key={index}
-            className='comment-card'
-          >
+          <div key={index} className='comment-card'>
             <Comment
               notes={notes}
               note={note}
               deleteComment={() => handleClickDelete(note.id, setNotes)}
-              updateComment={(updatedData) => handleClickUpdate(note.id, updatedData, setNotes)}
+              updateComment={(updatedData) =>
+                handleClickUpdate(note.id, updatedData, setNotes)
+              }
             />
           </div>
         ))}

@@ -14,11 +14,4 @@ body {
   font-family: sans-serif;
   background-color: var(--color-white);
   color: var(--color-black);
-  /* filter: invert(1); */
-}
-
-#root {
-  background: white;
-  width: 100vw;
-  height: 100vh;
 }

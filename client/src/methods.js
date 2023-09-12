@@ -1,6 +1,9 @@
+import { getEnvValue } from './utils'
+const ENDPOINT = getEnvValue('ENDPOINT');
+
 export const createNote = async (newNoteData, setNotes) => {
   try {
-    const response = await fetch('https://notes-deploy-server.vercel.app/notes', {
+    const response = await fetch(`${ENDPOINT}/notes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +30,7 @@ export const updateNote = async (id, updatedData, setNotes) => {
   };
 
   try {
-    const response = await fetch(`https://notes-deploy-server.vercel.app/notes/${id}`, {
+    const response = await fetch(`${ENDPOINT}/notes/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -51,7 +54,7 @@ export const updateNote = async (id, updatedData, setNotes) => {
 
 export const deleteNote = async (id, setNotes) => {
   try {
-    await fetch(`https://notes-deploy-server.vercel.app/notes/${id}`, {
+    await fetch(`${ENDPOINT}/notes/${id}`, {
       method: 'DELETE'
     });
 
