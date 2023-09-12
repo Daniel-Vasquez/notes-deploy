@@ -6,7 +6,7 @@ import { createNote, updateNote, deleteNote } from './methods'
 import { getEnvValue } from './utils'
 import './App.css'
 
-const ENDPOINT = getEnvValue('ENDPOINT');
+const ENDPOINT = getEnvValue('ENDPOINT') || "https://notes-deploy-server.vercel.app";
 
 export function App() {
   const [notes, setNotes] = useState([])
