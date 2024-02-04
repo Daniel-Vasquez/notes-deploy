@@ -56,7 +56,7 @@ export function Comment({ notes, note, deleteComment, updateComment }) {
           <p className="note-content">
             {content}, <strong>{date}</strong>.
           </p>
-          <div className="comment-card-buttons">
+          {/* <div className="comment-card-buttons">
             <button
               className="comment-card-buttons__comment"
               onClick={() => handleUpdateClick(id)}
@@ -72,7 +72,7 @@ export function Comment({ notes, note, deleteComment, updateComment }) {
             >
               Eliminar
             </button>
-          </div>
+          </div> */}
         </>
       )}
     </div >
