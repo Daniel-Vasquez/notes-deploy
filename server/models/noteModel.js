@@ -1,30 +1,19 @@
 import { randomUUID } from "node:crypto"
-import { getDateTime, getAllNotes } from "../utils.js";
+// import { getDateTime } from "../utils.js";
+// import { loadData } from "../utils.js";
 
-// const NOTES = [
-//   {
-//     id: "1",
-//     date: getDateTime(),
-//     content: "This is a note",
-//   }
-// ];
+const NOTES = []
 
 export class NoteModel {
   static async getNotes() {
-    const NOTES = await getAllNotes();
-
-    return NOTES || [];
+    return NOTES;
   }
 
-  static async getById({ id }) {
-    const NOTES = await getAllNotes();
-
+  static async getById({id}) {
     return NOTES.find(note => note.id === id)
   }
 
   static async createNote({ input }) {
-    const NOTES = await getAllNotes();
-
     const newNote = {
       id: randomUUID(),
       // date: getDateTime(),
@@ -37,8 +26,6 @@ export class NoteModel {
   }
 
   static async updateNote({ id, input }) {
-    const NOTES = await getAllNotes();
-    
     const noteIndex = NOTES.findIndex(note => note.id === id)
 
     if (noteIndex === -1) return false
@@ -48,21 +35,15 @@ export class NoteModel {
       ...input
     }
 
-    return NOTES[noteIndex] || []
+    return NOTES[noteIndex]
   }
 
   static async deleteNote({ id }) {
-    const NOTES = await getAllNotes();
-
-    if (!NOTES) {
-      return false
-    }
-
     const noteIndex = NOTES.findIndex(note => note.id === id)
 
     if (noteIndex === -1) return false
 
     NOTES.splice(noteIndex, 1)
-    return true || false
+    return true
   }
 }

@@ -20,10 +20,3 @@ export function getDateTime() {
 
   return `${year}-${month}-${day}`;
 }
-
-export const getAllNotes = async () => {
-  return fetch("https://notes-deploy-server.vercel.app/notes")
-    .then((response) => response.json())
-    .then((data) => JSON.parse(data))
-    .catch((error) => console.error("Error al cargar las notas:", error));
-}
