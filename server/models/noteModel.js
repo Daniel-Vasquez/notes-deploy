@@ -33,10 +33,6 @@ export class NoteModel {
   static async createNote({ input }) {
     const NOTES = await getAllNotes();
 
-    if (!NOTES) {
-      return []
-    }
-
     const newNote = {
       id: randomUUID(),
       // date: getDateTime(),
