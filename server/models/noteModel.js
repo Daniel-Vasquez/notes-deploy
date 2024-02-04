@@ -1,34 +1,32 @@
 import { randomUUID } from "node:crypto"
 import { getDateTime } from "../utils.js";
 // import { loadData } from "../utils.js";
-const NOTES = [
-  {
-    "id": "1693845439847",
-    "date": "2021-09-11",
-    "content": "La tecnología avanza rápidamente y lo que es innovador hoy puede volverse obsoleto en poco tiempo."
-  },
-  {
-    "id": "1693843949847",
-    "date": "2021-09-07",
-    "content": "La tecnología ha transformado la forma en que vivimos, trabajamos y nos relacionamos, generando tanto oportunidades como desafíos."
-  },
-  {
-    "id": "1693843954012",
-    "date": "2021-09-01",
-    "content": "La tecnología, especialmente Internet, ha conectado a personas de todo el mundo, impulsando la globalización y cambiando la forma en que interactuamos y hacemos negocios."
-  }
-]
 
 export class NoteModel {
   static async getNotes() {
-    return NOTES;
+    const NOTES = fetch("https://notes-deploy-server.vercel.app/notes")
+      .then((response) => response.json())
+      .then((data) => data)
+      .catch((error) => console.error("Error al cargar las notas:", error));
+    
+    return NOTES || [];
   }
 
-  static async getById({id}) {
-    return NOTES.find(note => note.id === id)
+  static async getById({ id }) {
+    const NOTES = fetch("https://notes-deploy-server.vercel.app/notes")
+      .then((response) => response.json())
+      .then((data) => data)
+      .catch((error) => console.error("Error al cargar las notas:", error));
+    
+    return NOTES.find(note => note.id === id) || null
   }
 
   static async createNote({ input }) {
+    const NOTES = fetch("https://notes-deploy-server.vercel.app/notes")
+      .then((response) => response.json())
+      .then((data) => data)
+      .catch((error) => console.error("Error al cargar las notas:", error));
+
     const newNote = {
       id: randomUUID(),
       date: getDateTime(),
@@ -37,10 +35,15 @@ export class NoteModel {
 
     NOTES.unshift(newNote);
 
-    return newNote;
+    return newNote || null
   }
 
   static async updateNote({ id, input }) {
+    const NOTES = fetch("https://notes-deploy-server.vercel.app/notes")
+      .then((response) => response.json())
+      .then((data) => data)
+      .catch((error) => console.error("Error al cargar las notas:", error));
+    
     const noteIndex = NOTES.findIndex(note => note.id === id)
 
     if (noteIndex === -1) return false
@@ -50,15 +53,20 @@ export class NoteModel {
       ...input
     }
 
-    return NOTES[noteIndex]
+    return NOTES[noteIndex] || null
   }
 
   static async deleteNote({ id }) {
+    const NOTES = fetch("https://notes-deploy-server.vercel.app/notes")
+      .then((response) => response.json())
+      .then((data) => data)
+      .catch((error) => console.error("Error al cargar las notas:", error));
+    
     const noteIndex = NOTES.findIndex(note => note.id === id)
 
     if (noteIndex === -1) return false
 
     NOTES.splice(noteIndex, 1)
-    return true
+    return true || false
   }
 }
