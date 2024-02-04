@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto"
-import { getDateTime } from "../utils.js";
-// import { loadData } from "../utils.js";
+// import { getDateTime } from "../utils.js";
+
 const NOTES = [
   {
     "id": "1693845439847",
@@ -21,7 +21,7 @@ export class NoteModel {
   static async createNote({ input }) {
     const newNote = {
       id: randomUUID(),
-      date: getDateTime(),
+      // date: getDateTime(),
       ...input,
     }
 
