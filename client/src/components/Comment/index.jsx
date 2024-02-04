@@ -54,7 +54,8 @@ export function Comment({ notes, note, deleteComment, updateComment }) {
       {!isEditing && (
         <>
           <p className="note-content">
-            {content}, <strong>{date}</strong>.
+            {/* {content}, <strong>{date}</strong>. */}
+            {content}
           </p>
           {/* <div className="comment-card-buttons">
             <button

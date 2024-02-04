@@ -4,7 +4,7 @@ import { randomUUID } from "node:crypto"
 const NOTES = [
   {
     "id": "1693845439847",
-    "date": "2024-02-03",
+    // "date": "2024-02-03",
     "content": "La tecnología avanza rápidamente y lo que es innovador hoy puede volverse obsoleto en poco tiempo."
   },
 ]
