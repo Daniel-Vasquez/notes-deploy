@@ -1,24 +1,42 @@
 import { randomUUID } from "node:crypto"
-// import { getDateTime } from "../utils.js";
+import { getDateTime, getAllNotes } from "../utils.js";
 
-const NOTES = [
-  {
-    "id": "1693845439847",
-    // "date": "2024-02-03",
-    "content": "La tecnología avanza rápidamente y lo que es innovador hoy puede volverse obsoleto en poco tiempo."
-  },
-]
+// const NOTES = [
+//   {
+//     id: "1",
+//     date: getDateTime(),
+//     content: "This is a note",
+//   }
+// ];
 
 export class NoteModel {
   static async getNotes() {
-    return NOTES;
+    const NOTES = await getAllNotes();
+    
+    if (!NOTES) {
+      return []
+    }
+
+    return NOTES || [];
   }
 
-  static async getById({id}) {
+  static async getById({ id }) {
+    const NOTES = await getAllNotes();
+
+    if (!NOTES) {
+      return []
+    }
+
     return NOTES.find(note => note.id === id)
   }
 
   static async createNote({ input }) {
+    const NOTES = await getAllNotes();
+
+    if (!NOTES) {
+      return []
+    }
+
     const newNote = {
       id: randomUUID(),
       // date: getDateTime(),
@@ -31,6 +49,12 @@ export class NoteModel {
   }
 
   static async updateNote({ id, input }) {
+    const NOTES = await getAllNotes();
+
+    if (!NOTES) {
+      return []
+    }
+    
     const noteIndex = NOTES.findIndex(note => note.id === id)
 
     if (noteIndex === -1) return false
@@ -40,15 +64,21 @@ export class NoteModel {
       ...input
     }
 
-    return NOTES[noteIndex]
+    return NOTES[noteIndex] || []
   }
 
   static async deleteNote({ id }) {
+    const NOTES = await getAllNotes();
+
+    if (!NOTES) {
+      return false
+    }
+
     const noteIndex = NOTES.findIndex(note => note.id === id)
 
     if (noteIndex === -1) return false
 
     NOTES.splice(noteIndex, 1)
-    return true
+    return true || false
   }
 }
