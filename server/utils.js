@@ -24,6 +24,6 @@ export function getDateTime() {
 export const getAllNotes = async () => {
   return fetch("https://notes-deploy-server.vercel.app/notes")
     .then((response) => response.json())
-    .then((data) => data)
+    .then((data) => JSON.parse(data))
     .catch((error) => console.error("Error al cargar las notas:", error));
 }
