@@ -3,17 +3,21 @@ import { getDateTime, getAllNotes } from "../utils.js";
 
 export class NoteModel {
   static async getNotes() {
-    const NOTES = await getAllNotes()
+    const response = await fetch("https://notes-deploy-server.vercel.app/notes");
+    const NOTES = await response.json();
     return NOTES;
   }
 
   static async getById({ id }) {
-    const NOTES = await getAllNotes()
+    const response = await fetch(`https://notes-deploy-server.vercel.app/notes/${id}`);
+    const NOTES = await response.json();
     return NOTES.find(note => note.id === id)
   }
 
   static async createNote({ input }) {
-    const NOTES = await getAllNotes()
+    const response = await fetch("https://notes-deploy-server.vercel.app/notes");
+    const NOTES = await response.json();
+    
     const newNote = {
       id: randomUUID(),
       date: getDateTime(),
@@ -26,7 +30,9 @@ export class NoteModel {
   }
 
   static async updateNote({ id, input }) {
-    const NOTES = await getAllNotes()
+    const response = await fetch(`https://notes-deploy-server.vercel.app/notes/${id}`);
+    const NOTES = await response.json();
+
     const noteIndex = NOTES.findIndex(note => note.id === id)
 
     if (noteIndex === -1) return false
@@ -40,7 +46,9 @@ export class NoteModel {
   }
 
   static async deleteNote({ id }) {
-    const NOTES = await getAllNotes()
+    const response = await fetch(`https://notes-deploy-server.vercel.app/notes/${id}`);
+    const NOTES = await response.json();
+    
     const noteIndex = NOTES.findIndex(note => note.id === id)
 
     if (noteIndex === -1) return false
