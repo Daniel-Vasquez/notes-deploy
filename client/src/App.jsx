@@ -6,7 +6,7 @@ import { createNote, updateNote, deleteNote } from './methods'
 import { getEnvValue } from './utils'
 import './App.css'
 
-const ENDPOINT = getEnvValue('ENDPOINT') || "https://notes-deploy-server.vercel.app";
+const ENDPOINT = getEnvValue('ENDPOINT')
 
 export function App() {
   const [notes, setNotes] = useState([])
@@ -65,9 +65,7 @@ export function App() {
     <section className='comments'>
       <div className="comment-card">
         <h2>
-          Tu opinión es importante,
-          deja tu comentario para seguir
-          mejorando como programador.
+          Comparte tu inspiración, ¡deja aquí tu frase favorita y déjala brillar!
         </h2>
         <Form
           value={inputContent}
