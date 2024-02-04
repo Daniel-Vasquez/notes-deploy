@@ -1,5 +1,5 @@
 import { getEnvValue } from './utils'
-const ENDPOINT = getEnvValue('ENDPOINT') || "https://notes-deploy-server.vercel.app";
+const ENDPOINT = getEnvValue('ENDPOINT');
 
 export const createNote = async (newNoteData, setNotes) => {
   try {
