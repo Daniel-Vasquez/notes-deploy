@@ -12,20 +12,12 @@ import { getDateTime, getAllNotes } from "../utils.js";
 export class NoteModel {
   static async getNotes() {
     const NOTES = await getAllNotes();
-    
-    if (!NOTES) {
-      return []
-    }
 
     return NOTES || [];
   }
 
   static async getById({ id }) {
     const NOTES = await getAllNotes();
-
-    if (!NOTES) {
-      return []
-    }
 
     return NOTES.find(note => note.id === id)
   }
@@ -46,10 +38,6 @@ export class NoteModel {
 
   static async updateNote({ id, input }) {
     const NOTES = await getAllNotes();
-
-    if (!NOTES) {
-      return []
-    }
     
     const noteIndex = NOTES.findIndex(note => note.id === id)
 
