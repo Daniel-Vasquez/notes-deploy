@@ -3,7 +3,7 @@ import "./index.css"
 export const Form = ({ id, value, content, onCancel, onChange, onSubmit }) => {
   return (
     <form className="comment-card-inputs" onSubmit={onSubmit}>
-      <label className="comment-card-input">
+      <label className="comment-card-input font-semibold text-lg dark:bg-transparent dark:text-white">
         <input
           className="input__field"
           type="text"
@@ -11,7 +11,7 @@ export const Form = ({ id, value, content, onCancel, onChange, onSubmit }) => {
           value={value}
           onChange={onChange}
         />
-        <span className="comment-card-input__label">Escribe tu comentario aquí</span>
+        <span className="comment-card-input__label dark:bg-slate-700 dark:text-white">Escribe tu comentario aquí</span>
       </label>
       <div className="comment-card-buttons">
         {id && (
@@ -39,13 +39,13 @@ export const Form = ({ id, value, content, onCancel, onChange, onSubmit }) => {
           <button
             type='submit'
             disabled={!value}
-            className="comment-card-buttons__comment"
+            className="comment-card-buttons__comment bg-white text-black border border-black dark:bg-black dark:text-white"
           >
             Publicar
           </button>
         )}
       </div>
-      <span className="warning-message">*No podrás editar el comentario una vez creado*</span>
+      <span className="warning-message dark:text-white">*No podrás editar el comentario una vez creado*</span>
     </form>
   )
 }

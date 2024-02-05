@@ -53,7 +53,7 @@ export function Comment({ notes, note, deleteComment, updateComment }) {
 
       {!isEditing && (
         <>
-          <p className="note-content">
+          <p className="note-content dark:text-white">
             {/* {content}, <strong>{date}</strong>. */}
             {content}
           </p>

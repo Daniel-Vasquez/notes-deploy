@@ -63,8 +63,8 @@ export function App() {
 
   return (
     <section className='comments'>
-      <div className="comment-card">
-        <h2>
+      <div className="comment-card bg-white dark:bg-slate-700">
+        <h2 className="text-2xl font-bold mb-6 text-black dark:text-white">
           Comparte tu inspiración, ¡deja aquí tu frase favorita y déjala brillar!
         </h2>
         <Form
@@ -74,14 +74,14 @@ export function App() {
         />
       </div>
       <section className='comment'>
-        {!notes.length &&
-          <h1 className="comment-title">
-            No hay comentarios
+        {notes.length === 0 &&
+          <h1 className="comment-title text-3xl font-extrabold dark:text-white">
+            No hay frases.
           </h1>
         }
 
         {notes.map((note, index) => (
-          <div key={index} className='comment-card'>
+          <div key={index} className='comment-card bg-white dark:bg-slate-700'>
             <Comment
               notes={notes}
               note={note}
