@@ -45,7 +45,6 @@ export const Form = ({ id, value, content, onCancel, onChange, onSubmit }) => {
           </button>
         )}
       </div>
-      <span className="warning-message dark:text-white">*No podrás editar el comentario una vez creado*</span>
     </form>
   )
 }
